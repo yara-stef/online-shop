@@ -5,23 +5,13 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Online shop</title>
-        <link rel="stylesheet" >
+        <link rel="stylesheet" href="./style.css">
     </head>
     <body>
-        <section>
-            <div class="sidebar">
-                <h3>Sizes:</h3>
-                <button class="btn-size">XS</button>
-                <button class="btn-size">S</button>
-                <button class="btn-size">M</button>
-                <button class="btn-size">ML</button>
-                <button class="btn-size">L</button>
-                <button class="btn-size">XL</button>
-                <button class="btn-size">XXL</button>
-            </div>
-        </section>
-        <section class="items">
+        <div class="main">
+            <section class="items">
             <h3>16 Product(s) found</h3>
+            <div class="grid-container">
             <div>
                 <img class="item" src="./img/cropped-front.png" alt="cropped t-shirt">
                 <p>Cropped Stay Groovy off white</p>
@@ -86,6 +76,24 @@
                 <p>or 4 x$5.63</p>
                 <button class="btn-item">Add to cart</button>
             </div>
-        </section>
+            </div>          
+            </section>
+            <aside class="sidebar">            
+                <h3>Sizes:</h3>
+                <div class="btn-s-ml">
+                    <button class="btn-size">XS</button>
+                    <button class="btn-size">S</button>
+                    <button class="btn-size">M</button>
+                    <button class="btn-size">ML</button>
+                </div>  
+                <div>
+                    <button class="btn-size">L</button>
+                    <button class="btn-size">XL</button>
+                    <button class="btn-size">XXL</button>
+                </div>                            
+            </aside>
+        
+        </div>
+        
     </body>
 </html>

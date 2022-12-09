@@ -1,0 +1,52 @@
+body {
+    margin-top: 0;
+}
+
+.main {
+    display: flex;
+    flex-direction: row-reverse;
+    width: 1200px;
+    margin-left: -68px;
+}
+
+h3 {
+    margin-bottom: 20px;
+}
+
+aside {
+    display: block;
+}
+
+ .sidebar {
+    top: 0;
+    left: 0;
+    width: 225px;
+    height: 100%;
+}
+
+.btn-size {
+    background-color: rgb(231, 234, 238);
+    border: 0cm;
+    border-radius: 50%;
+    width: 35px;
+    height: 35px;
+    font-size: 0.7em;
+    box-shadow: none;
+    margin-right: 5px;
+    cursor: pointer;
+}
+
+.btn-s-ml {
+    padding-bottom: 20px;
+}
+
+.grid-container {
+    display: grid;
+    grid-template-columns: auto auto auto auto;
+    padding: 10px;
+}
+
+.item {
+    border: 10px solid rgba(255, 255, 255, 0.8);
+    text-align: center;
+}
