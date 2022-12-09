@@ -6,7 +6,7 @@ body {
     display: flex;
     flex-direction: row-reverse;
     width: 1200px;
-    margin-left: -68px;
+    margin-left: 20px;
 }
 
 h3 {
@@ -44,9 +44,22 @@ aside {
     display: grid;
     grid-template-columns: auto auto auto auto;
     padding: 10px;
+    padding-left: 20px;
 }
 
 .item {
     border: 10px solid rgba(255, 255, 255, 0.8);
     text-align: center;
+}
+
+
+.items-number {
+    margin-left: 20px;
+    font-weight: lighter;
+    margin-bottom: 0;
+}
+
+img {
+    width: 225px;
+    height: 333px;
 }
