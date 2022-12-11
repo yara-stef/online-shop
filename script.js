@@ -1,7 +1,12 @@
 'use strict';
 
-const size = document.querySelector('.btn-size');
+const size = document.querySelectorAll('.btn-size');
 
-size.addEventListener('click', function () {
-    
-});
+const switchButtonColor = function () {
+    size.classList.remove('.inactive');
+    size.classList.add('.active');
+}
+console.log(switchButtonColor());
+
+
+size.addEventListener('click', switchButtonColor());

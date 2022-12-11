@@ -25,7 +25,6 @@ aside {
 }
 
 .btn-size {
-    background-color: rgb(231, 234, 238);
     border: 0cm;
     border-radius: 50%;
     width: 35px;
@@ -34,6 +33,15 @@ aside {
     box-shadow: none;
     margin-right: 5px;
     cursor: pointer;
+}
+
+.inactive {
+    background-color: rgb(231, 234, 238);
+}
+
+.active {
+    background-color: black;
+    color: white;
 }
 
 .btn-s-ml {
