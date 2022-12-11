@@ -54,7 +54,7 @@ aside {
 
 
 .items-number {
-    margin-left: 20px;
+    margin-left: 30px;
     font-weight: lighter;
     margin-bottom: 0;
 }
@@ -62,4 +62,54 @@ aside {
 img {
     width: 225px;
     height: 333px;
+}
+
+.item-name {
+    font-size: 1.17em;
+    width: 200px;
+    text-align: center;
+    padding-left: 20px;
+    margin: 0;
+}
+
+.item-name2 {
+    margin-bottom: 30px;
+    margin-top: 0;
+    text-align: center;
+}
+
+hr {
+    width: 20px;
+    border: 1px solid rgba(226, 183, 66, 0.767);
+}
+
+.item-price {
+    text-align: center;
+    margin: 0;
+    margin-top: 15px;
+}
+
+p {
+    font-size: 1.17em;
+}
+
+.bold {
+    font-size: 1.40em;
+}
+
+.item-price-discount {
+    text-align: center;
+    margin: 0;
+    font-size: 1.10em;
+    color: grey;
+    margin-bottom: 15px;
+}
+
+.btn-item {
+    width: 225px;
+    height: 45px;
+    background-color: black;
+    color: white;
+    margin-left: 10px;
+    cursor: pointer;
 }
