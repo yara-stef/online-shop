@@ -33,16 +33,17 @@ aside {
     box-shadow: none;
     margin-right: 5px;
     cursor: pointer;
+    background-color: rgb(231, 234, 238);
 }
 
-.inactive {
+/*.inactive {
     background-color: rgb(231, 234, 238);
 }
 
 .active {
     background-color: black;
     color: white;
-}
+}*/
 
 .btn-s-ml {
     padding-bottom: 20px;
