@@ -7,6 +7,8 @@ const colors = ['white', 'black'];
 const btnsAddToCart = document.querySelectorAll('.btn-item');
 const addToCartBackground = ['yellow', 'black'];
 const addToCartColors = ['black', 'white'];
+const cropped = document.querySelector('.cropped-btn');
+const sweatshirt = document.querySelector('.sweatshirt-btn');
 let cart = [];
 
 //btnsSize - це node list, а btnSize - це його елемент. Перетворюємо node list в масив за допомогою Array.from(), 
@@ -33,5 +35,12 @@ Array.from(btnsAddToCart).map(btnAddToCart => {
 });
 })
 
+cropped.addEventListener('click', function () {
+    document.querySelector('.cropped').classList.remove('hidden');
+    document.querySelector('.cropped-front').classList.add('hidden');
+})
     
-
+sweatshirt.addEventListener('click', function () {
+    document.querySelector('.sweatshirt-back').classList.remove('hidden');
+    document.querySelector('.sweatshirt-front').classList.add('hidden');
+})
