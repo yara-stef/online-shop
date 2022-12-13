@@ -7,6 +7,7 @@ const colors = ['white', 'black'];
 const btnAddToCart = document.querySelector('.btn-item');
 const addToCartBackground = ['yellow', 'black'];
 const addToCartColors = ['black', 'white'];
+let cart = [];
 
 btnSize.addEventListener('click', function () {
     btnSize.style.backgroundColor = backgroundColors[index];
