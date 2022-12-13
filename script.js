@@ -1,6 +1,7 @@
 // 'use strict';
 
-const btnSize = document.querySelector('.btn-size');
+const btnSizes = document.querySelectorAll('.btn-size');
+debugger;
 let index = 0;
 const backgroundColors = ['black', 'rgb(231, 234, 238)'];
 const colors = ['white', 'black'];
@@ -9,12 +10,17 @@ const addToCartBackground = ['yellow', 'black'];
 const addToCartColors = ['black', 'white'];
 let cart = [];
 
-btnSize.addEventListener('click', function () {
+Array.from(btnSizes).map(btnSize => {
+    btnSize.addEventListener('click', function () {
     btnSize.style.backgroundColor = backgroundColors[index];
     btnSize.style.color = colors[index];
     
     index = index >= backgroundColors.length - 1 ? 0 : index + 1;
 });
+})
+
+
+
 
 btnAddToCart.addEventListener('click', function () {
     btnAddToCart.style.backgroundColor = addToCartBackground[index];
