@@ -9,7 +9,15 @@ const addToCartBackground = ['yellow', 'black'];
 const addToCartColors = ['black', 'white'];
 const cropped = document.querySelector('.cropped-btn');
 const sweatshirt = document.querySelector('.sweatshirt-btn');
-let cart = [];
+const batman = document.querySelector('.batman-btn');
+const xs = document.querySelector('.btn-xs');
+const s = document.querySelector('.btn-s');
+const m = document.querySelector('.btn-m');
+const ml = document.querySelector('.btn-ml');
+const l = document.querySelector('.btn-l');
+const xl = document.querySelector('.btn-xl');
+const xxl = document.querySelector('.btn-xxl');
+let size = true;
 
 //btnsSize - це node list, а btnSize - це його елемент. Перетворюємо node list в масив за допомогою Array.from(), 
 // і далі до нього застосовуємо метод масивів map(), який виконує ітерацію кожного елемента.
@@ -44,3 +52,35 @@ sweatshirt.addEventListener('click', function () {
     document.querySelector('.sweatshirt-back').classList.remove('hidden');
     document.querySelector('.sweatshirt-front').classList.add('hidden');
 })
+
+batman.addEventListener('click', function () {
+    document.querySelector('.batman-back').classList.remove('hidden');
+    document.querySelector('.batman-front').classList.add('hidden');
+})
+
+xs.addEventListener('click', function () {
+    if (size) {
+        const item1 = document.querySelector('.item1');
+        const item3 = document.querySelector('.item3');
+        item1.classList.add('hidden');
+        item3.style.display = 'block';
+    } else {
+        item1.classList.remove('hidden');
+        itme3.style.display = 'none';
+    }
+})
+
+// s.addEventListener('click', function () {
+//     document.querySelector('.item1').classList.add('hidden');
+//     document.querySelector('.item3').classList.add('hidden');
+//     document.querySelector('.item4').classList.add('hidden');
+//     document.querySelector('.item5').classList.add('hidden');
+//     document.querySelector('.item7').classList.add('hidden');
+// })
+
+// m.addEventListener('click', function () {
+//     document.querySelector('.item1').classList.add('hidden');
+//     document.querySelector('.item3').classList.add('hidden');
+//     document.querySelector('.item4').classList.add('hidden');
+//     document.querySelector('.item7').classList.add('hidden');
+// })
