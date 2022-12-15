@@ -24,12 +24,13 @@ let size = true;
 
 Array.from(btnsSize).map(btnSize => {
     btnSize.addEventListener('click', function () {
-    btnSize.style.backgroundColor = backgroundColors[index];
-    btnSize.style.color = colors[index];
+        btnSize.classList.toggle('active');
+    // btnSize.style.backgroundColor = backgroundColors[index];
+    // btnSize.style.color = colors[index];
     
-    index = index >= backgroundColors.length - 1 ? 0 : index + 1;
+    // index = index >= backgroundColors.length - 1 ? 0 : index + 1;
     
-});
+}, false);
 })
 
 
@@ -84,3 +85,14 @@ xs.addEventListener('click', function () {
 //     document.querySelector('.item4').classList.add('hidden');
 //     document.querySelector('.item7').classList.add('hidden');
 // })
+
+function myFunction() { 
+    size = !size;
+    const x = document.querySelector('.item1'); 
+    debugger; 
+    if (size) { 
+        x.style.display = 'block'; 
+    } else { 
+        x.style.display = 'none'; 
+    } 
+}
