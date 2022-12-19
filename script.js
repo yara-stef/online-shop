@@ -1,12 +1,12 @@
 'use strict';
 
 const btnsSize = document.querySelectorAll('.btn-size');
-let index = 0;
-const backgroundColors = ['black', 'rgb(231, 234, 238)'];
-const colors = ['white', 'black'];
+// let index = 0;
+// const backgroundColors = ['black', 'rgb(231, 234, 238)'];
+// const colors = ['white', 'black'];
 const btnsAddToCart = document.querySelectorAll('.btn-item');
-const addToCartBackground = ['yellow', 'black'];
-const addToCartColors = ['black', 'white'];
+// const addToCartBackground = ['yellow', 'black'];
+// const addToCartColors = ['black', 'white'];
 const cropped = document.querySelector('.cropped-btn');
 const sweatshirt = document.querySelector('.sweatshirt-btn');
 const batman = document.querySelector('.batman-btn');
@@ -37,11 +37,12 @@ Array.from(btnsSize).map(btnSize => {
 
 Array.from(btnsAddToCart).map(btnAddToCart => {
     btnAddToCart.addEventListener('click', function () {
-    btnAddToCart.style.backgroundColor = addToCartBackground[index];
-    btnAddToCart.style.color = addToCartColors[index];
+        btnAddToCart.classList.toggle('active');
+    // btnAddToCart.style.backgroundColor = addToCartBackground[index];
+    // btnAddToCart.style.color = addToCartColors[index];
 
-    index = index >= addToCartBackground.length - 1 ? 0 : index + 1;
-});
+    // index = index >= addToCartBackground.length - 1 ? 0 : index + 1;
+}, false);
 })
 
 cropped.addEventListener('click', function () {
@@ -59,17 +60,17 @@ batman.addEventListener('click', function () {
     document.querySelector('.batman-front').classList.add('hidden');
 })
 
-xs.addEventListener('click', function () {
-    if (size) {
-        const item1 = document.querySelector('.item1');
-        const item3 = document.querySelector('.item3');
-        item1.classList.add('hidden');
-        item3.style.display = 'block';
-    } else {
-        item1.classList.remove('hidden');
-        itme3.style.display = 'none';
-    }
-})
+// xs.addEventListener('click', function () {
+//     if (size) {
+//         const item1 = document.querySelector('.item1');
+//         const item3 = document.querySelector('.item3');
+//         item1.classList.add('hidden');
+//         item3.style.display = 'block';
+//     } else {
+//         item1.classList.remove('hidden');
+//         itme3.style.display = 'none';
+//     }
+// })
 
 // s.addEventListener('click', function () {
 //     document.querySelector('.item1').classList.add('hidden');
@@ -86,13 +87,124 @@ xs.addEventListener('click', function () {
 //     document.querySelector('.item7').classList.add('hidden');
 // })
 
-function myFunction() { 
+function sizeXS() { 
     size = !size;
-    const x = document.querySelector('.item1'); 
-    debugger; 
+    const a = document.querySelector('.item1');
+    const b = document.querySelector('.item2');
+    const e = document.querySelector('.item5');
+    const h = document.querySelector('.item8');
     if (size) { 
-        x.style.display = 'block'; 
+        a.style.display = 'block';
+        b.style.display = 'block';
+        e.style.display = 'block';
+        h.style.display = 'block';
     } else { 
-        x.style.display = 'none'; 
+        a.style.display = 'none';
+        b.style.display = 'none';
+        e.style.display = 'none';
+        h.style.display = 'none';
+    } 
+}
+
+function sizeS() { 
+    size = !size;
+    const c = document.querySelector('.item3');
+    const d = document.querySelector('.item4');
+    const g = document.querySelector('.item7');
+    if (size) { 
+        c.style.display = 'block'; 
+        d.style.display = 'block'; 
+        g.style.display = 'block'; 
+    } else { 
+        c.style.display = 'none';
+        d.style.display = 'none';
+        g.style.display = 'none';
+    } 
+}
+
+function sizeM() { 
+    size = !size;
+    const d = document.querySelector('.item4');
+    const e = document.querySelector('.item5');
+    const f = document.querySelector('.item6');
+    const i = document.querySelector('.item9');
+    if (size) { 
+        d.style.display = 'block';
+        e.style.display = 'block';
+        f.style.display = 'block';
+        i.style.display = 'block';
+    } else { 
+        d.style.display = 'none';
+        e.style.display = 'none';
+        f.style.display = 'none';
+        i.style.display = 'none';
+    } 
+}
+
+
+function sizeML() { 
+    size = !size;
+    const a = document.querySelector('.item1');
+    const d = document.querySelector('.item4');
+    const g = document.querySelector('.item7');
+    if (size) { 
+        a.style.display = 'block'; 
+        d.style.display = 'block'; 
+        g.style.display = 'block'; 
+    } else { 
+        a.style.display = 'none';
+        d.style.display = 'none';
+        g.style.display = 'none';
+    } 
+}
+
+function sizeL() { 
+    size = !size;
+    const d = document.querySelector('.item4');
+    const e = document.querySelector('.item5');
+    const f = document.querySelector('.item6');
+    const i = document.querySelector('.item9');
+    if (size) { 
+        d.style.display = 'block';
+        e.style.display = 'block';
+        f.style.display = 'block';
+        i.style.display = 'block';
+    } else { 
+        d.style.display = 'none';
+        e.style.display = 'none';
+        f.style.display = 'none';
+        i.style.display = 'none';
+    } 
+}
+
+function sizeXL() { 
+    size = !size;
+    const c = document.querySelector('.item3');
+    const d = document.querySelector('.item4');
+    const g = document.querySelector('.item7');
+    if (size) { 
+        c.style.display = 'block'; 
+        d.style.display = 'block'; 
+        g.style.display = 'block'; 
+    } else { 
+        c.style.display = 'none';
+        d.style.display = 'none';
+        g.style.display = 'none';
+    } 
+}
+
+function sizeXXL() { 
+    size = !size;
+    const a = document.querySelector('.item1');
+    const d = document.querySelector('.item4');
+    const i = document.querySelector('.item9');
+    if (size) { 
+        a.style.display = 'block'; 
+        d.style.display = 'block'; 
+        i.style.display = 'block'; 
+    } else { 
+        a.style.display = 'none';
+        d.style.display = 'none';
+        i.style.display = 'none';
     } 
 }
