@@ -219,7 +219,7 @@ function sizeXXL() {
 
 // Cart
 
-const shoppingCart = function () {
+const shoppingCart = (function () {
     cart = [];
 
     // Constructor
@@ -309,5 +309,35 @@ const shoppingCart = function () {
     }
 
     // Total cart
-    
-}
+    obj.totalCart = function () {
+        const totalCart = 0;
+        for (const item in cart) {
+            totalCart += cart[item].price * cart[item].count;
+        }
+        return Number(totalCart.toFixed(2));
+    }
+
+    // List cart
+    obj.listCart = function () {
+        const cartCopy = [];
+        for (i in cart) {
+            item = cart[i];
+            itemCopy = {};
+            for (p in item) {
+                itemCopy[p] = item[p];
+            }
+            itemCopy.total = Number(item.price * item.count).toFixed(2);
+            cartCopy.push(itemCopy);
+        }
+        return cartCopy;
+    }
+    return obj;
+})();
+
+// Events
+// Add item
+$('.btn-item').click(function (event) {
+    event.preventDefault();
+    const name = $(this).data('name');
+    const price = Number($())
+})
