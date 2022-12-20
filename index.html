@@ -124,7 +124,7 @@
             </aside>
         
         </div>
-        <div class="shopping-bag" id="shopping-bag" data-bs-toggle="modal" data-bs-target="#shopping-cart-modal">
+        <div class="shopping-bag" id="shopping-bag" data-bs-toggle="modal" data-bs-target="#shopping-cart-modal" data-target="#cart">
             <img class="shopping-bag-img" src="./img/white-shopping-cart-icon.jpg" alt="shopping bag icon">
             <div class="total-items-in-cart"> </div>
         </div>
@@ -134,9 +134,9 @@
             <div class="modal-dialog">
                 <div class="modal-content">
                     <div class="modal-header">
-                        <h5 class="modal-title" id="cart-title">Cart</h5>
                         <img class="shopping-bag-img" src="./img/white-shopping-cart-icon.jpg" alt="shopping bag icon">
                         <div class="total-items-in-cart"> </div> 
+                        <h5 class="modal-title" id="cart-title">Cart</h5>
                         <button type="button" class="close">
                             <span></span>
                         </button>
@@ -145,6 +145,10 @@
                         <table class="show-cart table"></table>
                         <div>Add some products in the cart</div>
                         <div>:)</div>
+                        <div>Subtotal $<span class="total-cart"></span></div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn-primary">CHECKOUT</button>
                     </div>
                 </div>
             </div>

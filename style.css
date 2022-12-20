@@ -163,3 +163,7 @@ p {
 .items-paragraph {
     height: 140px;
 }
+
+.show-cart li {
+    display: flex;
+}
