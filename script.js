@@ -18,6 +18,7 @@ const l = document.querySelector('.btn-l');
 const xl = document.querySelector('.btn-xl');
 const xxl = document.querySelector('.btn-xxl');
 let size = true;
+const itemsFound = document.querySelector('.items-number');
 
 //btnsSize - це node list, а btnSize - це його елемент. Перетворюємо node list в масив за допомогою Array.from(), 
 // і далі до нього застосовуємо метод масивів map(), який виконує ітерацію кожного елемента.
@@ -104,6 +105,7 @@ function sizeXS() {
         e.style.display = 'none';
         h.style.display = 'none';
     } 
+    itemsFound.textContent = `5 Product(s) found`;
 }
 
 function sizeS() { 
@@ -119,7 +121,8 @@ function sizeS() {
         c.style.display = 'none';
         d.style.display = 'none';
         g.style.display = 'none';
-    } 
+    }      
+    itemsFound.textContent = `6 Product(s) found`;
 }
 
 function sizeM() { 
@@ -139,6 +142,7 @@ function sizeM() {
         f.style.display = 'none';
         i.style.display = 'none';
     } 
+    itemsFound.textContent = `5 Product(s) found`;
 }
 
 
@@ -156,6 +160,7 @@ function sizeML() {
         d.style.display = 'none';
         g.style.display = 'none';
     } 
+    itemsFound.textContent = `6 Product(s) found`;
 }
 
 function sizeL() { 
@@ -175,6 +180,7 @@ function sizeL() {
         f.style.display = 'none';
         i.style.display = 'none';
     } 
+    itemsFound.textContent = `5 Product(s) found`;
 }
 
 function sizeXL() { 
@@ -191,6 +197,7 @@ function sizeXL() {
         d.style.display = 'none';
         g.style.display = 'none';
     } 
+    itemsFound.textContent = `6 Product(s) found`;
 }
 
 function sizeXXL() { 
@@ -207,4 +214,5 @@ function sizeXXL() {
         d.style.display = 'none';
         i.style.display = 'none';
     } 
+    itemsFound.textContent = `6 Product(s) found`;
 }
