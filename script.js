@@ -217,127 +217,149 @@ function sizeXXL() {
     itemsFound.textContent = `6 Product(s) found`;
 }
 
-// Cart
-
-const shoppingCart = (function () {
-    cart = [];
-
-    // Constructor
-    function Item(name, price, count) {
-        this.name = name;
-        this.price = price;
-        this.count = count
+const productList = [
+    {
+        id: 'cropped',
+        name: 'Cropped Stay Groovy off white',
+        price: 10.90,
+        img: "./img/cropped-front.png"
+    },
+    {
+        id: 'cactus',
+        name: 'Basic Cactus White T-shirt',
+        price: 13.25,
+        img: "./img/basic-cactus-front.png"
     }
+];
 
-    // Save cart
-    function saveCart() {
-        sessionStorage.setItem('shoppingCart', JSON.stringify(cart));
-    }
+const selectedProducts = [];
 
-    // Load cart
-    function loadCart() {
-        cart = JSON.parse(sessionStorage.getItem('shoppingCart'));
-    }
-    if (sessionStorage.getItem != null) {
-        loadCart();
-    }
-
-    const obj = {};
-
-    // Add to cart
-    obj.addItemToCart = function (name, price, count) {
-        for (const item in cart) {
-            if (cart[item].name === name) {
-                cart[item].count++;
-                saveCart();
-                return;
-            }
-        }
-        const item = new Item(name, price, count);
-        cart.push(item);
-        saveCart();
-    }
-
-    // Set count for item
-    obj.setCountForItem = function (name, count) {
-        for (const i in cart) {
-            if (cart[i].name === name) {
-                cart[i].count = count;
-                break;
-            }
-        }
-    };
-
-    // Remove item fron cart
-    obj.removeItemFromCart = function (name) {
-        for (const item in cart) {
-            if (cart[item].name === name) {
-                cart[item].count--;
-                if (cart[item].name === 0) {
-                    cart.splice(item, 1);
-                }
-                break;
-            }
-        }
-        saveCart();
-    }
-
-    // Remove all items from cart
-    obj.removeItemsFromCartAll = function (name) {
-        for (const item in cart) {
-            if (cart[item].name === name) {
-                cart.splice(item, 1);
-                break;
-            }
-        }
-        saveCart();
-    }
-
-    // Clear cart
-    obj.clearCart = function () {
-        cart =[];
-        saveCart();
-    }
-
-    // Count cart
-    obj.totalCount = function () {
-        const totalCount = 0;
-        for (const item in cart) {
-            totalCount += cart[item].count;
-        }
-        return totalCount;
-    }
-
-    // Total cart
-    obj.totalCart = function () {
-        const totalCart = 0;
-        for (const item in cart) {
-            totalCart += cart[item].price * cart[item].count;
-        }
-        return Number(totalCart.toFixed(2));
-    }
-
-    // List cart
-    obj.listCart = function () {
-        const cartCopy = [];
-        for (i in cart) {
-            item = cart[i];
-            itemCopy = {};
-            for (p in item) {
-                itemCopy[p] = item[p];
-            }
-            itemCopy.total = Number(item.price * item.count).toFixed(2);
-            cartCopy.push(itemCopy);
-        }
-        return cartCopy;
-    }
-    return obj;
-})();
-
-// Events
-// Add item
-$('.btn-item').click(function (event) {
-    event.preventDefault();
-    const name = $(this).data('name');
-    const price = Number($())
+productList.forEach(({id, name, price, img}, idx) => {
+    
 })
+
+
+// // Cart
+
+// const shoppingCart = (function () {
+//     cart = [];
+
+//     // Constructor
+//     function Item(name, price, count) {
+//         this.name = name;
+//         this.price = price;
+//         this.count = count
+//     }
+
+//     // Save cart
+//     function saveCart() {
+//         sessionStorage.setItem('shoppingCart', JSON.stringify(cart));
+//     }
+
+//     // Load cart
+//     function loadCart() {
+//         cart = JSON.parse(sessionStorage.getItem('shoppingCart'));
+//     }
+//     if (sessionStorage.getItem != null) {
+//         loadCart();
+//     }
+
+//     const obj = {};
+
+//     // Add to cart
+//     obj.addItemToCart = function (name, price, count) {
+//         for (const item in cart) {
+//             if (cart[item].name === name) {
+//                 cart[item].count++;
+//                 saveCart();
+//                 return;
+//             }
+//         }
+//         const item = new Item(name, price, count);
+//         cart.push(item);
+//         saveCart();
+//     }
+
+//     // Set count for item
+//     obj.setCountForItem = function (name, count) {
+//         for (const i in cart) {
+//             if (cart[i].name === name) {
+//                 cart[i].count = count;
+//                 break;
+//             }
+//         }
+//     };
+
+//     // Remove item fron cart
+//     obj.removeItemFromCart = function (name) {
+//         for (const item in cart) {
+//             if (cart[item].name === name) {
+//                 cart[item].count--;
+//                 if (cart[item].name === 0) {
+//                     cart.splice(item, 1);
+//                 }
+//                 break;
+//             }
+//         }
+//         saveCart();
+//     }
+
+//     // Remove all items from cart
+//     obj.removeItemsFromCartAll = function (name) {
+//         for (const item in cart) {
+//             if (cart[item].name === name) {
+//                 cart.splice(item, 1);
+//                 break;
+//             }
+//         }
+//         saveCart();
+//     }
+
+//     // Clear cart
+//     obj.clearCart = function () {
+//         cart =[];
+//         saveCart();
+//     }
+
+//     // Count cart
+//     obj.totalCount = function () {
+//         const totalCount = 0;
+//         for (const item in cart) {
+//             totalCount += cart[item].count;
+//         }
+//         return totalCount;
+//     }
+
+//     // Total cart
+//     obj.totalCart = function () {
+//         const totalCart = 0;
+//         for (const item in cart) {
+//             totalCart += cart[item].price * cart[item].count;
+//         }
+//         return Number(totalCart.toFixed(2));
+//     }
+
+//     // List cart
+//     obj.listCart = function () {
+//         const cartCopy = [];
+//         for (i in cart) {
+//             item = cart[i];
+//             itemCopy = {};
+//             for (p in item) {
+//                 itemCopy[p] = item[p];
+//             }
+//             itemCopy.total = Number(item.price * item.count).toFixed(2);
+//             cartCopy.push(itemCopy);
+//         }
+//         return cartCopy;
+//     }
+//     return obj;
+// })();
+
+// // Events
+// // Add item
+// $('.btn-item').click(function (event) {
+//     event.preventDefault();
+//     const name = $(this).data('name');
+//     const price = Number($())
+// })
