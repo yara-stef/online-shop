@@ -167,3 +167,8 @@ p {
 .show-cart li {
     display: flex;
 }
+
+.product {
+    display: flex;
+    flex-direction: row;
+}

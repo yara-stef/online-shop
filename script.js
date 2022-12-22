@@ -217,6 +217,9 @@ function sizeXXL() {
     itemsFound.textContent = `6 Product(s) found`;
 }
 
+// cart js
+const countOfSelectedProducts = document.getElementById('countOfSelectedProducts');
+
 const productList = [
     {
         id: 'cropped',
@@ -235,11 +238,36 @@ const productList = [
 const selectedProducts = [];
 
 productList.forEach(({id, name, price, img}, idx) => {
-    
+    const products = document.getElementById('products');
+    const product = document.createElement('li');
+    product.classList.add(`product_${idx}`, 'product');
+    product.dataset.id = id;
+    const productPrice = document.createElement('span');
+    productPrice.innerText = price;
+    product.appendChild(productPrice);
+
+    const label = document.createElement('span');
+    label.innerText = name;
+    product.appendChild(label);
+
+    const thumbnail = document.createElement('img');
+    thumbnail.src = img;
+    product.appendChild(thumbnail);
+
+    btnsAddToCart.addEventListener('click', function () {
+        const elementId = product.dataset.id;
+        const selectedProduct = productList.find((productToSelect) => productToSelect.id === elementId);
+        selectedProducts.push(selectedProduct);
+        countOfSelectedProducts.value = selectedProducts.length;
+    }, false);
+
+    products.appendChild(product);
 })
 
 
-// // Cart
+
+
+// // Cart jQuery
 
 // const shoppingCart = (function () {
 //     cart = [];
