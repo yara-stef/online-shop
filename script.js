@@ -241,7 +241,7 @@ window.addEventListener('click', function (event) {
 // cart js
 const countOfSelectedProducts = document.getElementById('countOfSelectedProducts');
 // const countOfSelectedProductsCart = document.getElementById('numberOfSelectedProducts');
-// const addProducts = document.querySelector('.addProducts');
+const addProducts = document.querySelector('.add-products');
 
 const productList = [
     {
@@ -295,7 +295,7 @@ productList.forEach(({id, name, price, img}, idx) => {
             countOfSelectedProducts.value = selectedProducts.length;
             // countOfSelectedProductsCart.value = selectedProducts.length;
             // countOfSelectedProductsCart.style.color = 'white';
-            // addProducts.classList.add('hidden');
+            addProducts.classList.add('hidden');
         }, false);
     });
 
