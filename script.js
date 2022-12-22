@@ -240,6 +240,8 @@ window.addEventListener('click', function (event) {
 
 // cart js
 const countOfSelectedProducts = document.getElementById('countOfSelectedProducts');
+// const countOfSelectedProductsCart = document.getElementById('numberOfSelectedProducts');
+// const addProducts = document.querySelector('.addProducts');
 
 const productList = [
     {
@@ -276,7 +278,35 @@ productList.forEach(({id, name, price, img}, idx) => {
     thumbnail.src = img;
     product.appendChild(thumbnail);
 
-    btnsAddToCart.addEventListener('click', function () {
+    const removeProduct = document.createElement('button');
+    removeProduct.innerText = '-';
+    product.appendChild(removeProduct);
+    
+    const addProduct = document.createElement('button');
+    addProduct.innerText = '+';
+    product.appendChild(addProduct);
+
+    
+    Array.from(btnsAddToCart).map(btnAddToCart => {
+        btnAddToCart.addEventListener('click', function () {
+            const elementId = Number(product.dataset.id);
+            const selectedProduct = productList.find((productToSelect) => productToSelect.id === elementId);
+            selectedProducts.push(selectedProduct);
+            countOfSelectedProducts.value = selectedProducts.length;
+            // countOfSelectedProductsCart.value = selectedProducts.length;
+            // countOfSelectedProductsCart.style.color = 'white';
+            // addProducts.classList.add('hidden');
+        }, false);
+    });
+
+    removeProduct.addEventListener('click', () => {
+        const elementId = Number(product.dataset.id);
+        const selectedProduct = productList.find((productToSelect) => productToSelect.id === elementId);
+        selectedProducts.pop(selectedProduct);
+        countOfSelectedProducts.value = selectedProducts.length;
+    }, false);
+
+    addProduct.addEventListener('click', () => {
         const elementId = Number(product.dataset.id);
         const selectedProduct = productList.find((productToSelect) => productToSelect.id === elementId);
         selectedProducts.push(selectedProduct);

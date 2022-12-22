@@ -209,3 +209,7 @@ p {
     display: flex;
     flex-direction: row;
 }
+
+#numberOfSelectedProducts {
+    color: white;
+}
