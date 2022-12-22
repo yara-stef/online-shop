@@ -217,6 +217,27 @@ function sizeXXL() {
     itemsFound.textContent = `6 Product(s) found`;
 }
 
+// Modal
+const modal = document.getElementById('cart');
+const cartBtn = document.querySelector('.shopping-bag');
+const closeModal = document.querySelector('.close')[0];
+
+cartBtn.addEventListener('click', function () {
+    modal.style.display = 'block';
+}, false);
+
+closeModal.addEventListener('click', function () {
+    modal.style.display = 'none';
+}, false);
+
+window.addEventListener('click', function (event) {
+    if (event.target == modal) {
+        modal.style.display = 'none';
+    }
+}, false);
+
+
+
 // cart js
 const countOfSelectedProducts = document.getElementById('countOfSelectedProducts');
 
@@ -242,6 +263,7 @@ productList.forEach(({id, name, price, img}, idx) => {
     const product = document.createElement('li');
     product.classList.add(`product_${idx}`, 'product');
     product.dataset.id = id;
+
     const productPrice = document.createElement('span');
     productPrice.innerText = price;
     product.appendChild(productPrice);
@@ -255,7 +277,7 @@ productList.forEach(({id, name, price, img}, idx) => {
     product.appendChild(thumbnail);
 
     btnsAddToCart.addEventListener('click', function () {
-        const elementId = product.dataset.id;
+        const elementId = Number(product.dataset.id);
         const selectedProduct = productList.find((productToSelect) => productToSelect.id === elementId);
         selectedProducts.push(selectedProduct);
         countOfSelectedProducts.value = selectedProducts.length;
