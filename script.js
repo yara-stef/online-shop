@@ -220,7 +220,7 @@ function sizeXXL() {
 // Modal
 const modal = document.getElementById('cart');
 const cartBtn = document.querySelector('.shopping-bag');
-const closeModal = document.querySelector('.close')[0];
+const closeModal = document.querySelector('.close');
 
 cartBtn.addEventListener('click', function () {
     modal.style.display = 'block';
