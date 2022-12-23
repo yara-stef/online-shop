@@ -287,17 +287,17 @@ productList.forEach(({id, name, price, img}, idx) => {
     product.appendChild(addProduct);
 
     
-    Array.from(btnsAddToCart).map(btnAddToCart => {
-        btnAddToCart.addEventListener('click', function () {
-            const elementId = Number(product.dataset.id);
-            const selectedProduct = productList.find((productToSelect) => productToSelect.id === elementId);
-            selectedProducts.push(selectedProduct);
-            countOfSelectedProducts.value = selectedProducts.length;
-            // countOfSelectedProductsCart.value = selectedProducts.length;
-            // countOfSelectedProductsCart.style.color = 'white';
-            addProducts.classList.add('hidden');
-        }, false);
-    });
+    // Array.from(btnsAddToCart).map(btnAddToCart => {
+    //     btnAddToCart.addEventListener('click', function () {
+    //         const elementId = product.dataset.id;
+    //         const selectedProduct = productList.find((productToSelect) => productToSelect.id === elementId);
+    //         selectedProducts.push(selectedProduct);
+    //         countOfSelectedProducts.value = selectedProducts.length;
+    //         // countOfSelectedProductsCart.value = selectedProducts.length;
+    //         // countOfSelectedProductsCart.style.color = 'white';
+    //         addProducts.classList.add('hidden');
+    //     }, false);
+    // });
 
     removeProduct.addEventListener('click', () => {
         const elementId = Number(product.dataset.id);
@@ -314,7 +314,17 @@ productList.forEach(({id, name, price, img}, idx) => {
     }, false);
 
     products.appendChild(product);
-})
+});
+
+document.querySelector('.btn-item').addEventListener('click', function () {
+    const elementId = product.dataset.id;
+    const selectedProduct = productList.find((productToSelect) => productToSelect.id === elementId);
+    selectedProducts.push(selectedProduct);
+    countOfSelectedProducts.value = selectedProducts.length;
+    // countOfSelectedProductsCart.value = selectedProducts.length;
+    // countOfSelectedProductsCart.style.color = 'white';
+    addProducts.classList.add('hidden');
+}, false);
 
 
 
