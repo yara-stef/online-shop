@@ -255,50 +255,81 @@ const productList = [
         name: 'Basic Cactus White T-shirt',
         price: 13.25,
         img: "./img/basic-cactus-front.png"
+    },
+    {
+       id: 'Skater',
+        name: 'Skater Black Sweatshirt',
+        price: 25.90,
+        img: "./img/scater-front.png" 
+    },
+    {
+       id: 'tule',
+        name: 'Black Tule Oversized',
+        price: 29.45,
+        img: "./img/black-tule-front.png" 
+    },
+    {
+       id: 'batman',
+        name: 'Black Batman T-shirt',
+        price: 10.90,
+        img: "./img/black-batman-front.png" 
+    },
+    {
+       id: 'blue',
+        name: 'Blue T-shirt',
+        price: 10.90,
+        img: "./img/blue-front.png" 
+    },
+    {
+       id: 'loose',
+        name: 'Loose Black T-shirt',
+        price: 10.90,
+        img: "./img/loose-front.png" 
+    },
+    {
+       id: 'ringer',
+        name: 'Ringer Hall Pass',
+        price: 10.90,
+        img: "./img/ringer-front.png" 
+    },
+    {
+       id: 'sweatshirt',
+        name: 'Blue Sweatshirt',
+        price: 22.50,
+        img: "./img/blue-sweatshirt-front.png" 
     }
 ];
 
+
 const selectedProducts = [];
+let products, product, productPrice, label, thumbnail, removeProduct, addProduct;
 
 productList.forEach(({id, name, price, img}, idx) => {
-    const products = document.getElementById('products');
-    const product = document.createElement('li');
+    products = document.getElementById('products');
+    product = document.createElement('li');
     product.classList.add(`product_${idx}`, 'product');
     product.dataset.id = id;
 
-    const productPrice = document.createElement('span');
+    productPrice = document.createElement('span');
     productPrice.innerText = price;
     product.appendChild(productPrice);
 
-    const label = document.createElement('span');
+    label = document.createElement('span');
     label.innerText = name;
     product.appendChild(label);
 
-    const thumbnail = document.createElement('img');
+    thumbnail = document.createElement('img');
     thumbnail.src = img;
     product.appendChild(thumbnail);
 
-    const removeProduct = document.createElement('button');
+    removeProduct = document.createElement('button');
     removeProduct.innerText = '-';
     product.appendChild(removeProduct);
     
-    const addProduct = document.createElement('button');
+    addProduct = document.createElement('button');
     addProduct.innerText = '+';
     product.appendChild(addProduct);
-
-    
-    // Array.from(btnsAddToCart).map(btnAddToCart => {
-    //     btnAddToCart.addEventListener('click', function () {
-    //         const elementId = product.dataset.id;
-    //         const selectedProduct = productList.find((productToSelect) => productToSelect.id === elementId);
-    //         selectedProducts.push(selectedProduct);
-    //         countOfSelectedProducts.value = selectedProducts.length;
-    //         // countOfSelectedProductsCart.value = selectedProducts.length;
-    //         // countOfSelectedProductsCart.style.color = 'white';
-    //         addProducts.classList.add('hidden');
-    //     }, false);
-    // });
-
+     
     removeProduct.addEventListener('click', () => {
         const elementId = Number(product.dataset.id);
         const selectedProduct = productList.find((productToSelect) => productToSelect.id === elementId);
@@ -316,15 +347,24 @@ productList.forEach(({id, name, price, img}, idx) => {
     products.appendChild(product);
 });
 
-document.querySelector('.btn-item').addEventListener('click', function () {
-    const elementId = product.dataset.id;
-    const selectedProduct = productList.find((productToSelect) => productToSelect.id === elementId);
-    selectedProducts.push(selectedProduct);
-    countOfSelectedProducts.value = selectedProducts.length;
-    // countOfSelectedProductsCart.value = selectedProducts.length;
-    // countOfSelectedProductsCart.style.color = 'white';
-    addProducts.classList.add('hidden');
+products.classList.add('hidden');
+
+Array.from(btnsAddToCart).map(btnAddToCart => {
+        btnAddToCart.addEventListener('click', function () {
+            const elementId = product.dataset.id;
+            const selectedProduct = productList.find((productToSelect) => productToSelect.id === elementId);
+            selectedProducts.push(selectedProduct);
+            countOfSelectedProducts.value = selectedProducts.length;
+            // countOfSelectedProductsCart.value = selectedProducts.length;
+            // countOfSelectedProductsCart.style.color = 'white';
+            addProducts.classList.add('hidden');
+        }, false);
+});
+    
+cropped.addEventListener('click', () => {
+    productList.id('cropped').classList.remove('hidden');
 }, false);
+
 
 
 
