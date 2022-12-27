@@ -26,12 +26,7 @@ const itemsFound = document.querySelector('.items-number');
 Array.from(btnsSize).map(btnSize => {
     btnSize.addEventListener('click', function () {
         btnSize.classList.toggle('active');
-    // btnSize.style.backgroundColor = backgroundColors[index];
-    // btnSize.style.color = colors[index];
-    
-    // index = index >= backgroundColors.length - 1 ? 0 : index + 1;
-    
-}, false);
+    }, false);
 })
 
 
@@ -39,13 +34,10 @@ Array.from(btnsSize).map(btnSize => {
 Array.from(btnsAddToCart).map(btnAddToCart => {
     btnAddToCart.addEventListener('click', function () {
         btnAddToCart.classList.toggle('active');
-    // btnAddToCart.style.backgroundColor = addToCartBackground[index];
-    // btnAddToCart.style.color = addToCartColors[index];
-
-    // index = index >= addToCartBackground.length - 1 ? 0 : index + 1;
-}, false);
+    }, false);
 })
 
+// Switch the image from front view to back
 cropped.addEventListener('click', function () {
     document.querySelector('.cropped').classList.remove('hidden');
     document.querySelector('.cropped-front').classList.add('hidden');
@@ -61,33 +53,7 @@ batman.addEventListener('click', function () {
     document.querySelector('.batman-front').classList.add('hidden');
 })
 
-// xs.addEventListener('click', function () {
-//     if (size) {
-//         const item1 = document.querySelector('.item1');
-//         const item3 = document.querySelector('.item3');
-//         item1.classList.add('hidden');
-//         item3.style.display = 'block';
-//     } else {
-//         item1.classList.remove('hidden');
-//         itme3.style.display = 'none';
-//     }
-// })
-
-// s.addEventListener('click', function () {
-//     document.querySelector('.item1').classList.add('hidden');
-//     document.querySelector('.item3').classList.add('hidden');
-//     document.querySelector('.item4').classList.add('hidden');
-//     document.querySelector('.item5').classList.add('hidden');
-//     document.querySelector('.item7').classList.add('hidden');
-// })
-
-// m.addEventListener('click', function () {
-//     document.querySelector('.item1').classList.add('hidden');
-//     document.querySelector('.item3').classList.add('hidden');
-//     document.querySelector('.item4').classList.add('hidden');
-//     document.querySelector('.item7').classList.add('hidden');
-// })
-
+// Filter the sizes
 function sizeXS() { 
     size = !size;
     const a = document.querySelector('.item1');
@@ -240,7 +206,7 @@ window.addEventListener('click', function (event) {
 
 // cart js
 const countOfSelectedProducts = document.getElementById('countOfSelectedProducts');
-// const countOfSelectedProductsCart = document.getElementById('numberOfSelectedProducts');
+const countOfSelectedProductsOuter = document.getElementById('countOfSelectedProductsOuter');
 const addProducts = document.querySelector('.add-products');
 
 const productList = [
@@ -335,6 +301,7 @@ productList.forEach(({id, name, price, img}, idx) => {
         const selectedProduct = productList.find((productToSelect) => productToSelect.id === elementId);
         selectedProducts.pop(selectedProduct);
         countOfSelectedProducts.value = selectedProducts.length;
+        countOfSelectedProductsOuter.value = selectedProducts.length;
     }, false);
 
     addProduct.addEventListener('click', () => {
@@ -342,21 +309,22 @@ productList.forEach(({id, name, price, img}, idx) => {
         const selectedProduct = productList.find((productToSelect) => productToSelect.id === elementId);
         selectedProducts.push(selectedProduct);
         countOfSelectedProducts.value = selectedProducts.length;
+        countOfSelectedProductsOuter.value = selectedProducts.length;
     }, false);
 
     products.appendChild(product);
 });
 
- products.classList.add('hidden');
+products.classList.add('hidden');
 
 Array.from(btnsAddToCart).map(btnAddToCart => {
         btnAddToCart.addEventListener('click', function () {
             const elementId = product.dataset.id;
             const selectedProduct = productList.find((productToSelect) => productToSelect.id === elementId);
             selectedProducts.push(selectedProduct);
+            console.log(selectedProducts);
             countOfSelectedProducts.value = selectedProducts.length;
-            // countOfSelectedProductsCart.value = selectedProducts.length;
-            // countOfSelectedProductsCart.style.color = 'white';
+            countOfSelectedProductsOuter.value = selectedProducts.length;
             addProducts.classList.add('hidden');
             products.classList.remove('hidden');
         }, false);
