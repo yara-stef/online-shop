@@ -1,3 +1,29 @@
+import { productList } from './shopping-list/shopping-list.js';
+
+
+    productList.forEach(({ id, name, price, img }, idx) => {
+        
+        const products = document.getElementById('product-list');
+        const product = document.createElement('li');
+        product.classList.add(`product_${idx}`, 'product');
+        product.dataset.id = id;
+
+        const productPrice = document.createElement('span');
+        productPrice.innerText = price;
+        product.appendChild(productPrice);
+
+        const label = document.createElement('span');
+        label.innerText = name;
+        product.appendChild(label);
+
+        const thumbnail = document.createElement('img');
+        thumbnail.src = img;
+        product.appendChild(thumbnail);
+
+        products.appendChild(product);
+    });
+
+
 
 
 // 'use strict';

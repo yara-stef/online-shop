@@ -1,4 +1,8 @@
-body {
+@import url(./shopping-list/shopping-list.css);
+@import url(./cart/cart.css);
+
+
+/*body {
     margin-top: 0;
 }
 
@@ -41,14 +45,7 @@ aside {
     color: white;
 }
 
-/*.inactive {
-    background-color: rgb(231, 234, 238);
-}
 
-.active {
-    background-color: black;
-    color: white;
-}*/
 
 .btn-s-ml {
     padding-bottom: 20px;
@@ -161,10 +158,10 @@ p {
 
 .items-paragraph {
     height: 140px;
-}
+}*/
 
 /* The Modal */
-.modal {
+/*.modal {
     display: none;
     position: fixed;
     z-index: 1;
@@ -233,18 +230,15 @@ span {
 .modal-body img {
     width: 70px;
     height: 90px;
-}
+}*/
 
 /* The Cart */
-.show-cart li {
+/*.show-cart li {
     display: flex;
 }
 
 .product {
     display: flex;
     flex-direction: row;
-}
-
-/*#numberOfSelectedProducts {
-    color: white;
 }*/
+
