@@ -32,6 +32,7 @@ aside {
     margin-right: 5px;
     cursor: pointer;
     background-color: rgb(231, 234, 238);
+    margin-bottom: 15px;
 }
 
 .grid-container {
@@ -39,8 +40,36 @@ aside {
     grid-template-columns: auto auto auto auto;
     padding: 10px;
     padding-left: 20px;
+    row-gap: 20px;
+    list-style: none;
 }
 
 section {
     width: 975px;
+}
+
+.line {
+    width: 20px;
+    border: 1px solid rgba(226, 183, 66, 0.767);
+}
+
+img {
+    width: 225px;
+    height: 333px;
+}
+
+.product {
+    text-align: center;
+}
+
+.btn-item {
+    width: 225px;
+    height: 45px;
+    background-color: black;
+    color: white;
+    cursor: pointer;
+}
+
+.products-found {
+    padding-left: 25px;
 }

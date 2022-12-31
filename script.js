@@ -1,7 +1,7 @@
 import { productList, sizes } from './shopping-list/shopping-list.js';
 
 
-    productList.forEach(({ id, name, price, img }, idx) => {
+    productList.forEach(({ id, name, price, img, discount }, idx) => {
         
         const products = document.getElementById('product-list');
         products.classList.add('grid-container');
@@ -9,48 +9,72 @@ import { productList, sizes } from './shopping-list/shopping-list.js';
         product.classList.add(`product_${idx}`, 'product');
         product.dataset.id = id;
 
-        const productPrice = document.createElement('span');
-        productPrice.innerText = price;
-        product.appendChild(productPrice);
+        const thumbnail = document.createElement('img');
+        thumbnail.src = img;
+        product.appendChild(thumbnail);
 
         const label = document.createElement('span');
         label.innerText = name;
         product.appendChild(label);
 
-        const thumbnail = document.createElement('img');
-        thumbnail.src = img;
-        product.appendChild(thumbnail);
+        const line = document.createElement('hr');
+        line.classList.add('line');
+        product.appendChild(line);
+
+        const curency = document.createElement('span');
+        curency.innerText = '$';
+        product.appendChild(curency);
+
+        const productPrice = document.createElement('span');
+        productPrice.innerText = price;
+        product.appendChild(productPrice);     
+        
+        const cheeper = document.createElement('div');
+        cheeper.innerText = discount;
+        product.appendChild(cheeper);
+
+        const addToCartBtn = document.createElement('button');
+        addToCartBtn.innerText = 'Add to cart';
+        addToCartBtn.classList.add('btn-item');
+        product.appendChild(addToCartBtn);
 
         products.appendChild(product);
     });
 
 const sizeBtnXS = document.createElement('button');
 sizeBtnXS.innerText = 'XS';
+sizeBtnXS.classList.add('btn-size');
 sizes.appendChild(sizeBtnXS);
 
 const sizeBtnS = document.createElement('button');
 sizeBtnS.innerText = 'S';
+sizeBtnS.classList.add('btn-size');
 sizes.appendChild(sizeBtnS);
 
 const sizeBtnM = document.createElement('button');
 sizeBtnM.innerText = 'M';
+sizeBtnM.classList.add('btn-size');
 sizes.appendChild(sizeBtnM);
 
 const sizeBtnML = document.createElement('button');
 sizeBtnML.innerText = 'ML';
+sizeBtnML.classList.add('btn-size');
 sizes.appendChild(sizeBtnML);
 
-const sizeBtn = document.createElement('button');
-sizeBtn.innerText = 'X';
-sizes.appendChild(sizeBtn);
+const sizeBtnL = document.createElement('button');
+sizeBtnL.innerText = 'L';
+sizeBtnL.classList.add('btn-size');
+sizes.appendChild(sizeBtnL);
 
-const sizeBtn = document.createElement('button');
-sizeBtn.innerText = 'xs';
-sizes.appendChild(sizeBtn);
+const sizeBtnXL = document.createElement('button');
+sizeBtnXL.innerText = 'XL';
+sizeBtnXL.classList.add('btn-size');
+sizes.appendChild(sizeBtnXL);
 
-const sizeBtn = document.createElement('button');
-sizeBtn.innerText = 'xs';
-sizes.appendChild(sizeBtn);
+const sizeBtnXXL = document.createElement('button');
+sizeBtnXXL.innerText = 'XXL';
+sizeBtnXXL.classList.add('btn-size');
+sizes.appendChild(sizeBtnXXL);
 
 
 
