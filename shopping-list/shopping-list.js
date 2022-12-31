@@ -55,6 +55,8 @@ const productList = [
     }
 ];
 
+const sizes = document.getElementById('sidebar');
 
 
-export { productList };
+
+export { productList, sizes };

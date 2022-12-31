@@ -1,9 +1,10 @@
-import { productList } from './shopping-list/shopping-list.js';
+import { productList, sizes } from './shopping-list/shopping-list.js';
 
 
     productList.forEach(({ id, name, price, img }, idx) => {
         
         const products = document.getElementById('product-list');
+        products.classList.add('grid-container');
         const product = document.createElement('li');
         product.classList.add(`product_${idx}`, 'product');
         product.dataset.id = id;
@@ -23,6 +24,33 @@ import { productList } from './shopping-list/shopping-list.js';
         products.appendChild(product);
     });
 
+const sizeBtnXS = document.createElement('button');
+sizeBtnXS.innerText = 'XS';
+sizes.appendChild(sizeBtnXS);
+
+const sizeBtnS = document.createElement('button');
+sizeBtnS.innerText = 'S';
+sizes.appendChild(sizeBtnS);
+
+const sizeBtnM = document.createElement('button');
+sizeBtnM.innerText = 'M';
+sizes.appendChild(sizeBtnM);
+
+const sizeBtnML = document.createElement('button');
+sizeBtnML.innerText = 'ML';
+sizes.appendChild(sizeBtnML);
+
+const sizeBtn = document.createElement('button');
+sizeBtn.innerText = 'X';
+sizes.appendChild(sizeBtn);
+
+const sizeBtn = document.createElement('button');
+sizeBtn.innerText = 'xs';
+sizes.appendChild(sizeBtn);
+
+const sizeBtn = document.createElement('button');
+sizeBtn.innerText = 'xs';
+sizes.appendChild(sizeBtn);
 
 
 

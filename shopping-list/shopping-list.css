@@ -1,0 +1,46 @@
+body {
+    margin-top: 0;
+}
+
+#main {
+    display: flex;
+    flex-direction: row-reverse;
+    width: 1200px;
+    margin-left: 20px;
+}
+
+aside {
+    display: block;
+}
+
+#sidebar {
+    position: absolute; 
+    top: 0;
+    left: 20px;
+    width: 225px;
+    height: 100%;
+
+}
+
+.btn-size {
+    border: 0cm;
+    border-radius: 50%;
+    width: 35px;
+    height: 35px;
+    font-size: 0.7em;
+    box-shadow: none;
+    margin-right: 5px;
+    cursor: pointer;
+    background-color: rgb(231, 234, 238);
+}
+
+.grid-container {
+    display: grid;
+    grid-template-columns: auto auto auto auto;
+    padding: 10px;
+    padding-left: 20px;
+}
+
+section {
+    width: 975px;
+}
