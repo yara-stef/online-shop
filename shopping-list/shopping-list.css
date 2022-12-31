@@ -35,6 +35,11 @@ aside {
     margin-bottom: 15px;
 }
 
+.btn-size.active {
+    background-color: black;
+    color: white;
+}
+
 .grid-container {
     display: grid;
     grid-template-columns: auto auto auto auto;

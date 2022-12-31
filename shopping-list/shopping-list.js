@@ -65,7 +65,13 @@ const productList = [
 ];
 
 const sizes = document.getElementById('sidebar');
+const sizeBtnXS = document.createElement('button');
+const sizeBtnS = document.createElement('button');
+const sizeBtnM = document.createElement('button');
+const sizeBtnML = document.createElement('button');
+const sizeBtnL = document.createElement('button');
+const sizeBtnXL = document.createElement('button');
+const sizeBtnXXL = document.createElement('button');
 
 
-
-export { productList, sizes };
+export { productList, sizes, sizeBtnXS, sizeBtnS, sizeBtnM, sizeBtnML, sizeBtnL, sizeBtnXL, sizeBtnXXL };

@@ -1,4 +1,4 @@
-import { productList, sizes } from './shopping-list/shopping-list.js';
+import { productList, sizes, sizeBtnXS, sizeBtnS, sizeBtnM, sizeBtnML, sizeBtnL, sizeBtnXL, sizeBtnXXL } from './shopping-list/shopping-list.js';
 
 
     productList.forEach(({ id, name, price, img, discount }, idx) => {
@@ -41,41 +41,62 @@ import { productList, sizes } from './shopping-list/shopping-list.js';
         products.appendChild(product);
     });
 
-const sizeBtnXS = document.createElement('button');
+
 sizeBtnXS.innerText = 'XS';
 sizeBtnXS.classList.add('btn-size');
 sizes.appendChild(sizeBtnXS);
 
-const sizeBtnS = document.createElement('button');
 sizeBtnS.innerText = 'S';
 sizeBtnS.classList.add('btn-size');
 sizes.appendChild(sizeBtnS);
 
-const sizeBtnM = document.createElement('button');
 sizeBtnM.innerText = 'M';
 sizeBtnM.classList.add('btn-size');
 sizes.appendChild(sizeBtnM);
 
-const sizeBtnML = document.createElement('button');
 sizeBtnML.innerText = 'ML';
 sizeBtnML.classList.add('btn-size');
 sizes.appendChild(sizeBtnML);
 
-const sizeBtnL = document.createElement('button');
 sizeBtnL.innerText = 'L';
 sizeBtnL.classList.add('btn-size');
 sizes.appendChild(sizeBtnL);
 
-const sizeBtnXL = document.createElement('button');
 sizeBtnXL.innerText = 'XL';
 sizeBtnXL.classList.add('btn-size');
 sizes.appendChild(sizeBtnXL);
 
-const sizeBtnXXL = document.createElement('button');
 sizeBtnXXL.innerText = 'XXL';
 sizeBtnXXL.classList.add('btn-size');
 sizes.appendChild(sizeBtnXXL);
 
+sizeBtnXS.addEventListener('click', () => {
+    sizeBtnXS.classList.toggle('active');
+}, false);
+
+sizeBtnS.addEventListener('click', () => {
+    sizeBtnS.classList.toggle('active');
+}, false);
+
+sizeBtnM.addEventListener('click', () => {
+    sizeBtnM.classList.toggle('active');
+}, false);
+
+sizeBtnML.addEventListener('click', () => {
+    sizeBtnML.classList.toggle('active');
+}, false);
+
+sizeBtnL.addEventListener('click', () => {
+    sizeBtnL.classList.toggle('active');
+}, false);
+
+sizeBtnXL.addEventListener('click', () => {
+    sizeBtnXL.classList.toggle('active');
+}, false);
+
+sizeBtnXXL.addEventListener('click', () => {
+    sizeBtnXXL.classList.toggle('active');
+}, false);
 
 
 // 'use strict';
