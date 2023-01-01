@@ -1,7 +1,7 @@
-import { productList, sizes, sizeBtnXS, sizeBtnS, sizeBtnM, sizeBtnML, sizeBtnL, sizeBtnXL, sizeBtnXXL } from './shopping-list/shopping-list.js';
+import { productList, sizes, sizeBtnXS, sizeBtnS, sizeBtnM, sizeBtnML, sizeBtnL, sizeBtnXL, sizeBtnXXL, size } from './shopping-list/shopping-list.js';
 
 
-    productList.forEach(({ id, name, price, img, discount }, idx) => {
+    productList.forEach(({ id, name, price, img, discount, size }, idx) => {
         
         const products = document.getElementById('product-list');
         products.classList.add('grid-container');
