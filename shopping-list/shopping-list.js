@@ -82,7 +82,7 @@ const sizeBtnML = document.createElement('button');
 const sizeBtnL = document.createElement('button');
 const sizeBtnXL = document.createElement('button');
 const sizeBtnXXL = document.createElement('button');
-let size = true;
 
 
-export { productList, sizes, sizeBtnXS, sizeBtnS, sizeBtnM, sizeBtnML, sizeBtnL, sizeBtnXL, sizeBtnXXL, size };
+
+export { productList, sizes, sizeBtnXS, sizeBtnS, sizeBtnM, sizeBtnML, sizeBtnL, sizeBtnXL, sizeBtnXXL };

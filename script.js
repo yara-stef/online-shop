@@ -1,4 +1,4 @@
-import { productList, sizes, sizeBtnXS, sizeBtnS, sizeBtnM, sizeBtnML, sizeBtnL, sizeBtnXL, sizeBtnXXL, size } from './shopping-list/shopping-list.js';
+import { productList, sizes, sizeBtnXS, sizeBtnS, sizeBtnM, sizeBtnML, sizeBtnL, sizeBtnXL, sizeBtnXXL } from './shopping-list/shopping-list.js';
 
 
     productList.forEach(({ id, name, price, img, discount, size }, idx) => {
@@ -33,12 +33,23 @@ import { productList, sizes, sizeBtnXS, sizeBtnS, sizeBtnM, sizeBtnML, sizeBtnL,
         cheeper.innerText = discount;
         product.appendChild(cheeper);
 
+        const productSizes = document.createElement('div');
+        productSizes.innerText = size;
+        productSizes.classList.add('hidden');
+        product.appendChild(productSizes);
+
         const addToCartBtn = document.createElement('button');
         addToCartBtn.innerText = 'Add to cart';
         addToCartBtn.classList.add('btn-item');
         product.appendChild(addToCartBtn);
 
         products.appendChild(product);
+
+        sizeBtnXS.addEventListener('click', () => {
+            sizeBtnXS.classList.toggle('active');
+            const sizeCheck = Array.from(productSizes).includes('xs');
+            console.log(sizeCheck);    
+        }, false);
     });
 
 
@@ -70,9 +81,7 @@ sizeBtnXXL.innerText = 'XXL';
 sizeBtnXXL.classList.add('btn-size');
 sizes.appendChild(sizeBtnXXL);
 
-sizeBtnXS.addEventListener('click', () => {
-    sizeBtnXS.classList.toggle('active');
-}, false);
+
 
 sizeBtnS.addEventListener('click', () => {
     sizeBtnS.classList.toggle('active');
@@ -97,6 +106,8 @@ sizeBtnXL.addEventListener('click', () => {
 sizeBtnXXL.addEventListener('click', () => {
     sizeBtnXXL.classList.toggle('active');
 }, false);
+
+
 
 
 // 'use strict';
