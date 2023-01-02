@@ -83,7 +83,10 @@ const sizeBtnL = document.createElement('button');
 const sizeBtnXL = document.createElement('button');
 const sizeBtnXXL = document.createElement('button');
 const cart = document.getElementById('main');
+const modal = document.getElementById('main');
 
 
-
-export { productList, sizes, sizeBtnXS, sizeBtnS, sizeBtnM, sizeBtnML, sizeBtnL, sizeBtnXL, sizeBtnXXL, cart };
+export {
+    productList, sizes, sizeBtnXS, sizeBtnS, sizeBtnM,
+    sizeBtnML, sizeBtnL, sizeBtnXL, sizeBtnXXL, cart, modal
+};

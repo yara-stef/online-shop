@@ -1,4 +1,7 @@
-import { productList, sizes, sizeBtnXS, sizeBtnS, sizeBtnM, sizeBtnML, sizeBtnL, sizeBtnXL, sizeBtnXXL, cart } from './shopping-list/shopping-list.js';
+import {
+    productList, sizes, sizeBtnXS, sizeBtnS, sizeBtnM, sizeBtnML,
+    sizeBtnL, sizeBtnXL, sizeBtnXXL, cart, modal
+} from './shopping-list/shopping-list.js';
 
 
     productList.forEach(({ id, name, price, img, discount, size }, idx) => {
@@ -54,7 +57,7 @@ import { productList, sizes, sizeBtnXS, sizeBtnS, sizeBtnM, sizeBtnML, sizeBtnL,
         }, false);
     });
 
-
+// size buttons
 sizeBtnXS.innerText = 'XS';
 sizeBtnXS.classList.add('btn-size');
 sizes.appendChild(sizeBtnXS);
@@ -84,7 +87,6 @@ sizeBtnXXL.classList.add('btn-size');
 sizes.appendChild(sizeBtnXXL);
 
 
-
 sizeBtnS.addEventListener('click', () => {
     sizeBtnS.classList.toggle('active');
 }, false);
@@ -109,6 +111,7 @@ sizeBtnXXL.addEventListener('click', () => {
     sizeBtnXXL.classList.toggle('active');
 }, false);
 
+// cart-button
 const cartBtn = document.createElement('button');
 cartBtn.classList.add('shopping-bag');
 const cartImg = document.createElement('img');
@@ -122,6 +125,38 @@ const cartOutputElement = document.createElement('output');
 cartOutputElement.dataset.id = 'countOfSelectedProductsOuter';
 cartOutput.appendChild(cartOutputElement);
 cart.appendChild(cartBtn);
+
+// modal window
+const modalWindow = document.createElement('div');
+modalWindow.classList.add('modal');
+modalWindow.id = 'cart';
+modal.appendChild(modalWindow);
+const modalContent = document.createElement('div');
+modalContent.classList.add('modal-content');
+modalWindow.appendChild(modalContent);
+const modalHeader = document.createElement('div');
+modalHeader.classList.add('modal-header');
+modalContent.appendChild(modalHeader);
+const modalHeaderImg = document.createElement('img');
+modalHeaderImg.src = './img/white-shopping-cart-icon.jpg';
+modalHeaderImg.classList.add('shopping-bag-img');
+modalHeaderImg.id = 'numberOfSelectedProducts';
+modalHeader.appendChild(modalHeaderImg);
+const totalItemsInCart = document.createElement('div');
+totalItemsInCart.classList.add('total-items-in-cart');
+modalHeader.appendChild(totalItemsInCart);
+const totalItemsInCartOutput = document.createElement('output');
+totalItemsInCartOutput.id = 'countOfSelectedProducts';
+totalItemsInCart.appendChild(totalItemsInCartOutput);
+const modalTitle = document.createElement('h3');
+modalTitle.classList.add('modal-title');
+modalTitle.id = 'cart-title';
+modalTitle.innerText = 'Cart';
+modalHeader.appendChild(modalTitle);
+const closeModal = document.createElement('span');
+closeModal.classList.add('close');
+closeModal.innerText = '&times;';
+modalHeader.appendChild(closeModal);
 
 
 
