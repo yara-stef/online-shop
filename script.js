@@ -1,7 +1,9 @@
 import {
     productList, sizes, sizeBtnXS, sizeBtnS, sizeBtnM, sizeBtnML,
-    sizeBtnL, sizeBtnXL, sizeBtnXXL, cart, modal
+    sizeBtnL, sizeBtnXL, sizeBtnXXL, cart
 } from './shopping-list/shopping-list.js';
+
+import { modal } from './cart/cart.js';
 
 
     productList.forEach(({ id, name, price, img, discount, size }, idx) => {
@@ -126,9 +128,14 @@ cartOutputElement.dataset.id = 'countOfSelectedProductsOuter';
 cartOutput.appendChild(cartOutputElement);
 cart.appendChild(cartBtn);
 
+cartBtn.addEventListener('click', () => {
+    modalWindow.classList.toggle('modal');
+    modalWindow.classList.toggle('modal-hidden');
+})
+
 // modal window
 const modalWindow = document.createElement('div');
-modalWindow.classList.add('modal');
+modalWindow.classList.add('modal-hidden');
 modalWindow.id = 'cart';
 modal.appendChild(modalWindow);
 const modalContent = document.createElement('div');
@@ -153,11 +160,45 @@ modalTitle.classList.add('modal-title');
 modalTitle.id = 'cart-title';
 modalTitle.innerText = 'Cart';
 modalHeader.appendChild(modalTitle);
-const closeModal = document.createElement('span');
+const closeModal = document.createElement('img');
 closeModal.classList.add('close');
-closeModal.innerText = '&times;';
+closeModal.src = './img/close-btn.png';
 modalHeader.appendChild(closeModal);
+const modalBody = document.createElement('div');
+modalBody.classList.add('modal-body');
+modalContent.appendChild(modalBody);
+const productsElement = document.createElement('ul');
+productsElement.id = 'products';
+modalBody.appendChild(productsElement);
+const modalParagraph = document.createElement('div');
+modalParagraph.classList.add('add-products');
+modalParagraph.innerText = 'Add some products in the cart :)';
+modalBody.appendChild(modalParagraph);
+const subtotal = document.createElement('div');
+subtotal.innerText = 'Subtotal $';
+modalBody.appendChild(subtotal);
+const totalCart = document.createElement('span');
+totalCart.classList.add('total-cart');
+subtotal.appendChild(totalCart);
+const modalFooter = document.createElement('div');
+modalFooter.classList.add('modal-footer');
+modalContent.appendChild(modalFooter);
+const checkout = document.createElement('button');
+checkout.classList.add('btn-primary');
+checkout.innerText = 'CHECKOUT';
+modalFooter.appendChild(checkout);
 
+closeModal.addEventListener('click', () => {
+    modalWindow.classList.toggle('modal');
+    modalWindow.classList.toggle('modal-hidden');
+}, false);
+
+window.addEventListener('click', function (event) {
+    if (event.target == modalWindow) {
+        modalWindow.classList.toggle('modal');
+        modalWindow.classList.toggle('modal-hidden');
+    }
+}, false);
 
 
 // 'use strict';
