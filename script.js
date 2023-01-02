@@ -1,4 +1,4 @@
-import { productList, sizes, sizeBtnXS, sizeBtnS, sizeBtnM, sizeBtnML, sizeBtnL, sizeBtnXL, sizeBtnXXL } from './shopping-list/shopping-list.js';
+import { productList, sizes, sizeBtnXS, sizeBtnS, sizeBtnM, sizeBtnML, sizeBtnL, sizeBtnXL, sizeBtnXXL, cart } from './shopping-list/shopping-list.js';
 
 
     productList.forEach(({ id, name, price, img, discount, size }, idx) => {
@@ -43,11 +43,13 @@ import { productList, sizes, sizeBtnXS, sizeBtnS, sizeBtnM, sizeBtnML, sizeBtnL,
         addToCartBtn.classList.add('btn-item');
         product.appendChild(addToCartBtn);
 
+    
+
         products.appendChild(product);
 
         sizeBtnXS.addEventListener('click', () => {
             sizeBtnXS.classList.toggle('active');
-            const sizeCheck = Array.from(productSizes).includes('xs');
+            const sizeCheck = productSizes;
             console.log(sizeCheck);    
         }, false);
     });
@@ -107,6 +109,19 @@ sizeBtnXXL.addEventListener('click', () => {
     sizeBtnXXL.classList.toggle('active');
 }, false);
 
+const cartBtn = document.createElement('button');
+cartBtn.classList.add('shopping-bag');
+const cartImg = document.createElement('img');
+cartImg.src = './img/white-shopping-cart-icon.jpg';
+cartImg.classList.add('shopping-bag-img');
+cartBtn.appendChild(cartImg);
+const cartOutput = document.createElement('div');
+cartOutput.classList.add('total-items-in-cart');
+cartBtn.appendChild(cartOutput);
+const cartOutputElement = document.createElement('output');
+cartOutputElement.dataset.id = 'countOfSelectedProductsOuter';
+cartOutput.appendChild(cartOutputElement);
+cart.appendChild(cartBtn);
 
 
 
