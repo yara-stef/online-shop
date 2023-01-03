@@ -69,11 +69,18 @@ const generateProductList = () => {
 
 generateProductList();
 
+function sizeFilter(item) {
+    if (item.size && item.size.includes('xs')) {
+        return true;
+    }
+    return false;
+}
+
 sizeBtnXS.addEventListener('click', (event) => {
             sizeBtnXS.classList.toggle('active');
-            const filteredProducts = productList.filter(size => size == Array.from(size).includes('s'));
-    generateProductList(filteredProducts);
-    console.log(filteredProducts);
+    const productListFilter = productList.filter(sizeFilter);
+    console.log(productListFilter);
+    generateProductList(productListFilter);
         }, false);
 
 // size buttons
