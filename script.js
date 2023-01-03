@@ -3,7 +3,7 @@ import {
     sizeBtnL, sizeBtnXL, sizeBtnXXL, cart
 } from './shopping-list/shopping-list.js';
 
-import { modal } from './cart/cart.js';
+import { modal, selectedProducts } from './cart/cart.js';
 
 
     productList.forEach(({ id, name, price, img, discount, size }, idx) => {
@@ -48,15 +48,29 @@ import { modal } from './cart/cart.js';
         addToCartBtn.classList.add('btn-item');
         product.appendChild(addToCartBtn);
 
+        addToCartBtn.addEventListener('click', () => {
+            addToCartBtn.classList.toggle('active');
+            const elementId = product.dataset.id;
+            const selectedProduct = productList.find((productToSelect) => productToSelect.id === elementId);
+            selectedProducts.push(selectedProduct);
+            console.log(selectedProducts);
+            cartOutputElement.value = selectedProducts.length;
+            totalItemsInCartOutput.value = selectedProducts.length;
+            updateShoppingCart();
+        }, false);
+
     
 
         products.appendChild(product);
 
-        sizeBtnXS.addEventListener('click', () => {
-            sizeBtnXS.classList.toggle('active');
-            const sizeCheck = productSizes;
-            console.log(sizeCheck);    
-        }, false);
+        sizeBtnXS.addEventListener('click', (event) => {
+            sizeBtnXS.classList.toggle('active');    
+            const element = document.getElementsByClassName(`product_${idx}`)[0];
+            console.log(element);
+            if (element) {
+                element.classList.toggle('hidden');
+            }
+        }, false);       
     });
 
 // size buttons
@@ -112,6 +126,8 @@ sizeBtnXL.addEventListener('click', () => {
 sizeBtnXXL.addEventListener('click', () => {
     sizeBtnXXL.classList.toggle('active');
 }, false);
+
+
 
 // cart-button
 const cartBtn = document.createElement('button');
@@ -199,6 +215,30 @@ window.addEventListener('click', function (event) {
         modalWindow.classList.toggle('modal-hidden');
     }
 }, false);
+
+const updateShoppingCart = () => {
+    const productsToBuy = document.getElementById('products');
+    productsToBuy.innerHTML = '';
+    selectedProducts.forEach(({ id, name, price, img }, idx) => {
+        const product = document.createElement('li');
+        product.classList.add(`product_${idx}`, 'product');
+        product.dataset.id = id;
+        const thumbnail = document.createElement('img');
+        thumbnail.src = img;
+        thumbnail.classList.add('productImg');
+        product.appendChild(thumbnail);
+        const label = document.createElement('span');
+        label.innerText = name;
+        label.classList.add('name');
+        product.appendChild(label);
+        const productPrice = document.createElement('span');
+        productPrice.innerText = price;
+        product.appendChild(productPrice);
+        
+        
+        productsToBuy.appendChild(product);
+    });
+}
 
 
 // 'use strict';
