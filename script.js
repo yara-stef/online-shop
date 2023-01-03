@@ -5,7 +5,7 @@ import {
 
 import { modal, selectedProducts } from './cart/cart.js';
 
-
+const generateProductList = () => {
     productList.forEach(({ id, name, price, img, discount, size }, idx) => {
         
         const products = document.getElementById('product-list');
@@ -32,7 +32,7 @@ import { modal, selectedProducts } from './cart/cart.js';
 
         const productPrice = document.createElement('span');
         productPrice.innerText = price;
-        product.appendChild(productPrice);     
+        product.appendChild(productPrice);
         
         const cheeper = document.createElement('div');
         cheeper.innerText = discount;
@@ -60,19 +60,21 @@ import { modal, selectedProducts } from './cart/cart.js';
             updateShoppingCart();
         }, false);
 
-    
-
         products.appendChild(product);
-
-        sizeBtnXS.addEventListener('click', (event) => {
-            sizeBtnXS.classList.toggle('active');    
-            const element = document.getElementsByClassName(`product_${idx}`)[0];
-            console.log(element);
-            if (element) {
-                element.classList.toggle('hidden');
-            }
-        }, false);       
+        
+       
+        
     });
+}
+
+generateProductList();
+
+sizeBtnXS.addEventListener('click', (event) => {
+            sizeBtnXS.classList.toggle('active');
+            const filteredProducts = productList.filter(size => size == Array.from(size).includes('s'));
+    generateProductList(filteredProducts);
+    console.log(filteredProducts);
+        }, false);
 
 // size buttons
 sizeBtnXS.innerText = 'XS';
@@ -224,26 +226,32 @@ const updateShoppingCart = () => {
         const product = document.createElement('li');
         product.classList.add(`product_${idx}`, 'product', 'cartProduct');
         product.dataset.id = id;
+
         const thumbnail = document.createElement('img');
         thumbnail.src = img;
         thumbnail.classList.add('productImg');
         product.appendChild(thumbnail);
+
         const label = document.createElement('span');
         label.innerText = name;
         label.classList.add('name');
         product.appendChild(label);
+
         const curencyCart = document.createElement('span');
         curencyCart.innerText = '$';
         curencyCart.classList.add('productPrice');
         product.appendChild(curencyCart);
+
         const productPrice = document.createElement('span');
         productPrice.innerText = price;
         productPrice.classList.add('productPrice');
         product.appendChild(productPrice);
+
         const removeProduct = document.createElement('button');
         removeProduct.innerText = '-';
         removeProduct.classList.add('cartBtns');
-        product.appendChild(removeProduct);    
+        product.appendChild(removeProduct); 
+        
         const addProduct = document.createElement('button');
         addProduct.innerText = '+';
         addProduct.classList.add('cartBtns');
