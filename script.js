@@ -50,6 +50,7 @@ import { modal, selectedProducts } from './cart/cart.js';
 
         addToCartBtn.addEventListener('click', () => {
             addToCartBtn.classList.toggle('active');
+            modalParagraph.classList.add('hidden');
             const elementId = product.dataset.id;
             const selectedProduct = productList.find((productToSelect) => productToSelect.id === elementId);
             selectedProducts.push(selectedProduct);
@@ -221,7 +222,7 @@ const updateShoppingCart = () => {
     productsToBuy.innerHTML = '';
     selectedProducts.forEach(({ id, name, price, img }, idx) => {
         const product = document.createElement('li');
-        product.classList.add(`product_${idx}`, 'product');
+        product.classList.add(`product_${idx}`, 'product', 'cartProduct');
         product.dataset.id = id;
         const thumbnail = document.createElement('img');
         thumbnail.src = img;
@@ -231,11 +232,38 @@ const updateShoppingCart = () => {
         label.innerText = name;
         label.classList.add('name');
         product.appendChild(label);
+        const curencyCart = document.createElement('span');
+        curencyCart.innerText = '$';
+        curencyCart.classList.add('productPrice');
+        product.appendChild(curencyCart);
         const productPrice = document.createElement('span');
         productPrice.innerText = price;
+        productPrice.classList.add('productPrice');
         product.appendChild(productPrice);
+        const removeProduct = document.createElement('button');
+        removeProduct.innerText = '-';
+        removeProduct.classList.add('cartBtns');
+        product.appendChild(removeProduct);    
+        const addProduct = document.createElement('button');
+        addProduct.innerText = '+';
+        addProduct.classList.add('cartBtns');
+        product.appendChild(addProduct);
         
-        
+        removeProduct.addEventListener('click', () => {
+            const elementId = Number(product.dataset.id);
+            const selectedProduct = productList.find((productToSelect) => productToSelect.id === elementId);
+            selectedProducts.pop(selectedProduct);
+            countOfSelectedProducts.value = selectedProducts.length;
+            countOfSelectedProductsOuter.value = selectedProducts.length;
+        }, false);
+
+        addProduct.addEventListener('click', () => {
+            const elementId = Number(product.dataset.id);
+            const selectedProduct = productList.find((productToSelect) => productToSelect.id === elementId);
+            selectedProducts.push(selectedProduct);
+            countOfSelectedProducts.value = selectedProducts.length;
+            countOfSelectedProductsOuter.value = selectedProducts.length;
+        }, false);
         productsToBuy.appendChild(product);
     });
 }
