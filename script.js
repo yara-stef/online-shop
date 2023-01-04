@@ -55,7 +55,6 @@ const generateProductList = (list) => {
             const elementId = product.dataset.id;
             const selectedProduct = productList.find((productToSelect) => productToSelect.id === elementId);
             selectedProducts.push(selectedProduct);
-            console.log(selectedProducts);
             cartOutputElement.value = selectedProducts.length;
             totalItemsInCartOutput.value = selectedProducts.length;
             updateShoppingCart();
@@ -97,10 +96,7 @@ sizeBtnXXL.innerText = 'XXL';
 sizeBtnXXL.classList.add('btn-size');
 sizes.appendChild(sizeBtnXXL);
 
-// const productsFound = () => {
-//     const productsFoundText = document.querySelector('.products-found');
-//     productsFoundText.innerText = `${productListFilter.length} Product(s) found`;
-// }
+
 
 sizeBtnXS.addEventListener('click', (event) => {
     sizeBtnXS.classList.toggle('active');
@@ -191,7 +187,7 @@ cartBtn.appendChild(cartImg);
 const cartOutput = document.createElement('div');
 cartOutput.classList.add('total-items-in-cart');
 cartBtn.appendChild(cartOutput);
-const cartOutputElement = document.createElement('output');
+let cartOutputElement = document.createElement('output');
 cartOutputElement.dataset.id = 'countOfSelectedProductsOuter';
 cartOutput.appendChild(cartOutputElement);
 cart.appendChild(cartBtn);
@@ -220,7 +216,7 @@ modalHeader.appendChild(modalHeaderImg);
 const totalItemsInCart = document.createElement('div');
 totalItemsInCart.classList.add('total-items-in-cart');
 modalHeader.appendChild(totalItemsInCart);
-const totalItemsInCartOutput = document.createElement('output');
+let totalItemsInCartOutput = document.createElement('output');
 totalItemsInCartOutput.id = 'countOfSelectedProducts';
 totalItemsInCart.appendChild(totalItemsInCartOutput);
 const modalTitle = document.createElement('h3');
@@ -295,6 +291,15 @@ const updateShoppingCart = () => {
         label.classList.add('name');
         product.appendChild(label);
 
+        const quantity = document.createElement('div');
+        quantity.innerText = 'Quantity:';
+        quantity.classList.add('quantity');
+        label.appendChild(quantity);
+
+        const quantityNumber = document.createElement('output');
+        quantityNumber.id = 'quantityNumber';
+        quantity.appendChild(quantityNumber);
+
         const curencyCart = document.createElement('span');
         curencyCart.innerText = '$';
         curencyCart.classList.add('productPrice');
@@ -319,16 +324,18 @@ const updateShoppingCart = () => {
             const elementId = Number(product.dataset.id);
             const selectedProduct = productList.find((productToSelect) => productToSelect.id === elementId);
             selectedProducts.pop(selectedProduct);
-            countOfSelectedProducts.value = selectedProducts.length;
-            countOfSelectedProductsOuter.value = selectedProducts.length;
+            totalItemsInCartOutput.value = selectedProducts.length;
+            cartOutputElement.value = selectedProducts.length;
+            quantityNumber.value = selectedProduct.length;
         }, false);
 
         addProduct.addEventListener('click', () => {
             const elementId = Number(product.dataset.id);
             const selectedProduct = productList.find((productToSelect) => productToSelect.id === elementId);
             selectedProducts.push(selectedProduct);
-            countOfSelectedProducts.value = selectedProducts.length;
-            countOfSelectedProductsOuter.value = selectedProducts.length;
+            totalItemsInCartOutput.value = selectedProducts.length;
+            cartOutputElement.value = selectedProducts.length;
+            quantityNumber++;
         }, false);
         productsToBuy.appendChild(product);
     });
