@@ -28,3 +28,19 @@
 .cartProduct {
     display: flex;
 }
+
+.subtotal {
+    color: grey;
+    margin-top: 30px;
+    margin-bottom: 20px;
+}
+
+.curency {
+    color: rgba(226, 183, 66, 0.767);
+    padding-left: 70%;
+}
+
+.sum {
+    color: rgba(226, 183, 66, 0.767);
+    padding-left: 10px;
+}
