@@ -100,35 +100,35 @@ function sizeFilterS(item) {
 };
 
 function sizeFilterM(item) {
-    if (item.size && item.size.includes('s')) {
+    if (item.size && item.size.includes('m')) {
         return true;
     }
     return false;
 };
 
 function sizeFilterML(item) {
-    if (item.size && item.size.includes('s')) {
+    if (item.size && item.size.includes('ml')) {
         return true;
     }
     return false;
 };
 
 function sizeFilterL(item) {
-    if (item.size && item.size.includes('s')) {
+    if (item.size && item.size.includes('l')) {
         return true;
     }
     return false;
 };
 
 function sizeFilterXL(item) {
-    if (item.size && item.size.includes('s')) {
+    if (item.size && item.size.includes('xl')) {
         return true;
     }
     return false;
 };
 
 function sizeFilterXXL(item) {
-    if (item.size && item.size.includes('s')) {
+    if (item.size && item.size.includes('xxl')) {
         return true;
     }
     return false;
