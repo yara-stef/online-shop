@@ -1,12 +1,13 @@
 import {
     productList, sizes, sizeBtnXS, sizeBtnS, sizeBtnM, sizeBtnML,
-    sizeBtnL, sizeBtnXL, sizeBtnXXL, cart
+    sizeBtnL, sizeBtnXL, sizeBtnXXL, cart, sizeFilterXS,
+    sizeFilterS, sizeFilterM, sizeFilterML, sizeFilterL, sizeFilterXL, sizeFilterXXL
 } from './shopping-list/shopping-list.js';
 
 import { modal, selectedProducts } from './cart/cart.js';
 
-const generateProductList = () => {
-    productList.forEach(({ id, name, price, img, discount, size }, idx) => {
+const generateProductList = (list) => {
+    list.forEach(({ id, name, price, img, discount, size }, idx) => {
         
         const products = document.getElementById('product-list');
         products.classList.add('grid-container');
@@ -60,28 +61,12 @@ const generateProductList = () => {
             updateShoppingCart();
         }, false);
 
-        products.appendChild(product);
-        
-       
-        
+        products.appendChild(product);       
+               
     });
 }
 
-generateProductList();
-
-function sizeFilter(item) {
-    if (item.size && item.size.includes('xs')) {
-        return true;
-    }
-    return false;
-}
-
-sizeBtnXS.addEventListener('click', (event) => {
-            sizeBtnXS.classList.toggle('active');
-    const productListFilter = productList.filter(sizeFilter);
-    console.log(productListFilter);
-    generateProductList(productListFilter);
-        }, false);
+generateProductList(productList);
 
 // size buttons
 sizeBtnXS.innerText = 'XS';
@@ -112,29 +97,53 @@ sizeBtnXXL.innerText = 'XXL';
 sizeBtnXXL.classList.add('btn-size');
 sizes.appendChild(sizeBtnXXL);
 
+sizeBtnXS.addEventListener('click', (event) => {
+    sizeBtnXS.classList.toggle('active');
+    const productListFilter = productList.filter(sizeFilterXS);
+    console.log(productListFilter);
+    generateProductList(productListFilter);
+}, false);
 
 sizeBtnS.addEventListener('click', () => {
     sizeBtnS.classList.toggle('active');
+    const productListFilter = productList.filter(sizeFilterS);
+    console.log(productListFilter);
+    generateProductList(productListFilter);
 }, false);
 
 sizeBtnM.addEventListener('click', () => {
     sizeBtnM.classList.toggle('active');
+    const productListFilter = productList.filter(sizeFilterM);
+    console.log(productListFilter);
+    generateProductList(productListFilter);
 }, false);
 
 sizeBtnML.addEventListener('click', () => {
     sizeBtnML.classList.toggle('active');
+    const productListFilter = productList.filter(sizeFilterML);
+    console.log(productListFilter);
+    generateProductList(productListFilter);
 }, false);
 
 sizeBtnL.addEventListener('click', () => {
     sizeBtnL.classList.toggle('active');
+    const productListFilter = productList.filter(sizeFilterL);
+    console.log(productListFilter);
+    generateProductList(productListFilter);
 }, false);
 
 sizeBtnXL.addEventListener('click', () => {
     sizeBtnXL.classList.toggle('active');
+    const productListFilter = productList.filter(sizeFilterXL);
+    console.log(productListFilter);
+    generateProductList(productListFilter);
 }, false);
 
 sizeBtnXXL.addEventListener('click', () => {
     sizeBtnXXL.classList.toggle('active');
+    const productListFilter = productList.filter(sizeFilterXXL);
+    console.log(productListFilter);
+    generateProductList(productListFilter);
 }, false);
 
 

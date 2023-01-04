@@ -74,6 +74,7 @@ const productList = [
     }
 ];
 
+
 const sizes = document.getElementById('sidebar');
 const sizeBtnXS = document.createElement('button');
 const sizeBtnS = document.createElement('button');
@@ -84,9 +85,59 @@ const sizeBtnXL = document.createElement('button');
 const sizeBtnXXL = document.createElement('button');
 const cart = document.getElementById('main');
 
+function sizeFilterXS(item) {
+    if (item.size && item.size.includes('xs')) {
+        return true;
+    }
+    return false;
+};
+
+function sizeFilterS(item) {
+    if (item.size && item.size.includes('s')) {
+        return true;
+    }
+    return false;
+};
+
+function sizeFilterM(item) {
+    if (item.size && item.size.includes('s')) {
+        return true;
+    }
+    return false;
+};
+
+function sizeFilterML(item) {
+    if (item.size && item.size.includes('s')) {
+        return true;
+    }
+    return false;
+};
+
+function sizeFilterL(item) {
+    if (item.size && item.size.includes('s')) {
+        return true;
+    }
+    return false;
+};
+
+function sizeFilterXL(item) {
+    if (item.size && item.size.includes('s')) {
+        return true;
+    }
+    return false;
+};
+
+function sizeFilterXXL(item) {
+    if (item.size && item.size.includes('s')) {
+        return true;
+    }
+    return false;
+};
 
 
 export {
     productList, sizes, sizeBtnXS, sizeBtnS, sizeBtnM,
-    sizeBtnML, sizeBtnL, sizeBtnXL, sizeBtnXXL, cart
+    sizeBtnML, sizeBtnL, sizeBtnXL, sizeBtnXXL, cart, sizeFilterXS,
+    sizeFilterS, sizeFilterM, sizeFilterML, sizeFilterL, sizeFilterXL,
+    sizeFilterXXL
 };
