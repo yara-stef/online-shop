@@ -97,10 +97,19 @@ sizeBtnXXL.innerText = 'XXL';
 sizeBtnXXL.classList.add('btn-size');
 sizes.appendChild(sizeBtnXXL);
 
+// const productsFound = () => {
+//     const productsFoundText = document.querySelector('.products-found');
+//     productsFoundText.innerText = `${productListFilter.length} Product(s) found`;
+// }
+
 sizeBtnXS.addEventListener('click', (event) => {
     sizeBtnXS.classList.toggle('active');
     const productListFilter = productList.filter(sizeFilterXS);
     console.log(productListFilter);
+    const productsFoundText = document.querySelector('.products-found');
+    productsFoundText.innerText = `${productListFilter.length} Product(s) found`;
+    const instantList = document.getElementById('product-list');
+    instantList.innerHTML = '';
     generateProductList(productListFilter);
 }, false);
 
@@ -108,6 +117,10 @@ sizeBtnS.addEventListener('click', () => {
     sizeBtnS.classList.toggle('active');
     const productListFilter = productList.filter(sizeFilterS);
     console.log(productListFilter);
+    const productsFoundText = document.querySelector('.products-found');
+    productsFoundText.innerText = `${productListFilter.length} Product(s) found`;
+    const instantList = document.getElementById('product-list');
+    instantList.innerHTML = '';
     generateProductList(productListFilter);
 }, false);
 
@@ -115,6 +128,10 @@ sizeBtnM.addEventListener('click', () => {
     sizeBtnM.classList.toggle('active');
     const productListFilter = productList.filter(sizeFilterM);
     console.log(productListFilter);
+    const productsFoundText = document.querySelector('.products-found');
+    productsFoundText.innerText = `${productListFilter.length} Product(s) found`;
+    const instantList = document.getElementById('product-list');
+    instantList.innerHTML = '';
     generateProductList(productListFilter);
 }, false);
 
@@ -122,6 +139,10 @@ sizeBtnML.addEventListener('click', () => {
     sizeBtnML.classList.toggle('active');
     const productListFilter = productList.filter(sizeFilterML);
     console.log(productListFilter);
+    const productsFoundText = document.querySelector('.products-found');
+    productsFoundText.innerText = `${productListFilter.length} Product(s) found`;
+    const instantList = document.getElementById('product-list');
+    instantList.innerHTML = '';
     generateProductList(productListFilter);
 }, false);
 
@@ -129,6 +150,10 @@ sizeBtnL.addEventListener('click', () => {
     sizeBtnL.classList.toggle('active');
     const productListFilter = productList.filter(sizeFilterL);
     console.log(productListFilter);
+    const productsFoundText = document.querySelector('.products-found');
+    productsFoundText.innerText = `${productListFilter.length} Product(s) found`;
+    const instantList = document.getElementById('product-list');
+    instantList.innerHTML = '';
     generateProductList(productListFilter);
 }, false);
 
@@ -136,6 +161,10 @@ sizeBtnXL.addEventListener('click', () => {
     sizeBtnXL.classList.toggle('active');
     const productListFilter = productList.filter(sizeFilterXL);
     console.log(productListFilter);
+    const productsFoundText = document.querySelector('.products-found');
+    productsFoundText.innerText = `${productListFilter.length} Product(s) found`;
+    const instantList = document.getElementById('product-list');
+    instantList.innerHTML = '';
     generateProductList(productListFilter);
 }, false);
 
@@ -143,6 +172,10 @@ sizeBtnXXL.addEventListener('click', () => {
     sizeBtnXXL.classList.toggle('active');
     const productListFilter = productList.filter(sizeFilterXXL);
     console.log(productListFilter);
+    const productsFoundText = document.querySelector('.products-found');
+    productsFoundText.innerText = `${productListFilter.length} Product(s) found`;
+    const instantList = document.getElementById('product-list');
+    instantList.innerHTML = '';
     generateProductList(productListFilter);
 }, false);
 
